@@ -11,7 +11,9 @@ please cite the software using the Zenodo DOI.
 
 A Python version of Quant4D, with optional GPU acceleration, is available at
 `bryandesser/Quant4D <https://github.com/bryandesser/Quant4D>`_
-(`doi:10.5281/zenodo.24416072 <https://doi.org/10.5281/zenodo.24416072>`_).
+
+.. image:: https://zenodo.org/badge/289643259.svg
+  :target: https://doi.org/10.5281/zenodo.15493503
 
 A peer-reviewed publication is still in progress, but will be updated here when
 complete.
