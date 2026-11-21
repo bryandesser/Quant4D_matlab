@@ -21,7 +21,7 @@ opening, interacting with, and performing basic analysis of 4D-STEM data.
 Documentation
 =============
 
-Quant4D documentation is available at `quant4d.readthedocs.io <https://quant4d.readthedocs.io/en/latest>`_.
+Quant4D documentation is available at `quant4d-matlab.readthedocs.io <https://quant4d-matlab.readthedocs.io/en/latest>`_.
 
 .. _installation:
 
