@@ -13,4 +13,4 @@ identifiers:
     type: doi
     value: "10.5281/zenodo.15493504"
 license: GNU GPL-v3.0
-repository-code: "https://github.com/bryandesser/Quant4D"
+repository-code: "https://github.com/bryandesser/Quant4D_matlab"
