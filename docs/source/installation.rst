@@ -31,7 +31,7 @@ Installing Quant4D App
     :align: right
     
 The simplest way to install `Quant4D` is via the application installer file
-(`Quant4D.mlappinstall <https://github.com/bryandesser/Quant4D/blob/master/app_installer/Quant4D.mlappinstall>`_).
+(`Quant4D.mlappinstall <https://github.com/bryandesser/Quant4D_matlab/blob/master/app_installer/Quant4D.mlappinstall>`_).
 Download and open the file, which will open MATLAB and ask to install `Quant4D`
 into **My Apps** (see below). Click `Install` and then open the app from the
 **Apps** tab on the MATLAB Toolstrip. The app may be buried on the list - if
@@ -42,18 +42,22 @@ Running Quant4D code directly
 
 `Quant4D` can also be run directly from the source code, which gives access to
 debugging and live user interaction with the underlying experimental data for
-additional functionality. To do this, first download the
-`source code <https://github.com/bryandesser/Quant4D/tree/master/src>`_.
+additional functionality. Running from source needs MATLAB R2026b or newer,
+because the app is saved in App Designer's plain-text format: the code is in
+``Quant4D.m`` and the component layout in ``Quant4D.xml`` (keep the two files
+together). To do this, first download the
+`source code <https://github.com/bryandesser/Quant4D_matlab/tree/master/src>`_.
 Then open MATLAB, navigate to the downloaded source code directory, and add the
 directory and subdirectories to the MATLAB path by right-clicking on the parent
 directory and clicking `Add to Path > Selected Folders and Subfolders`.
 Alternatively, you can type ``addpath(genpath('.'))``. Once the source code
-directory is on the MATLAB path, open `Quant4D.mlapp` either by double-clicking
-it from the MATLAB file explorer tab or typing ``open('Quant4D.mlapp')``, which
-will open the MATLAB App Designer. In App Designer, simply press the **Run**
-button in the **Designer** Tab under the **Run** section. This will start the
-`Quant4D` app, whilst still allowing the user to debug, insert breakpoints, and
-modify code as desired.
+directory is on the MATLAB path, type ``Quant4D`` in the Command Window to start
+the app. To work on the app, open ``Quant4D.m`` by double-clicking it in the
+MATLAB file explorer tab, which opens it in the MATLAB App Designer, and press
+the **Run** button in the **Designer** Tab under the **Run** section. This will
+start the `Quant4D` app, whilst still allowing the user to debug, insert
+breakpoints, and modify code as desired. ``Quant4D.m`` is plain text, so it can
+also be read and compared in any text editor or with git.
 
 .. image:: ../_static/add_to_path.png
     :width: 382

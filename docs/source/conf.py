@@ -34,7 +34,9 @@ napoleon_preprocess_types = True
 
 primary_domain = "mat"
 this_dir = os.path.dirname(__file__)
-matlab_src_dir = os.path.abspath(this_dir)
+# document the app straight from its source: src/Quant4D.m (R2026b plain-text app),
+# src/+quant4d and src/dmInfo.m
+matlab_src_dir = os.path.abspath(os.path.join(this_dir, "..", "..", "src"))
 matlab_short_links = True
 matlab_auto_link = "all"
 matlab_show_property_default_value = False
@@ -68,7 +70,7 @@ html_baseurl = "https://quant4d.readthedocs.io/en/latest"
 html_context = {
     "display_github": True,
     "github_user": "bryandesser",
-    "github_repo": "Quant4D",
+    "github_repo": "Quant4D_matlab",
     "github_version": "master",
     "conf_py_path": "/docs/source/",
     "edit_on_github_text": "View on GitHub"
