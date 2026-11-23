@@ -14,8 +14,8 @@ authors:
     affiliation: "Monash Imaging Physics, Monash University"
 # Concept DOI (always resolves to the latest version).
 doi: 10.5281/zenodo.15493503
-version: 0.9              # bump to the new release tag
-date-released: "2025-05-23"  # bump to the new release date
+version: 2.0              # bump to the new release tag
+date-released: "2026-11-23"  # bump to the new release date
 identifiers:
   - description: Concept DOI for all versions of Quant4D (MATLAB)
     type: doi
