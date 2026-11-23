@@ -2,8 +2,8 @@
 with open(file = "./README.rst", mode = "w") as outfile:
 
     # add DOI sheild at the top
-    outfile.write(".. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.15493504.svg\n")
-    outfile.write("  :target: https://doi.org/10.5281/zenodo.15493504\n\n")
+    outfile.write(".. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.15493503.svg\n")
+    outfile.write("  :target: https://doi.org/10.5281/zenodo.15493503\n\n")
 
     # start with index page, make sure the Table of Contents toc tree is not
     # included
