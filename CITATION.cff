@@ -16,6 +16,13 @@ authors:
 doi: 10.5281/zenodo.15493503
 version: 0.9              # bump to the new release tag
 date-released: "2025-05-23"  # bump to the new release date
+identifiers:
+  - description: Concept DOI for all versions of Quant4D (MATLAB)
+    type: doi
+    value: "10.5281/zenodo.15493503"
+  - description: This is the archived snapshot of version 0.9 of Quant4D
+    type: doi
+    value: "10.5281/zenodo.15493504"
 license: GPL-3.0-or-later
 repository-code: "https://github.com/bryandesser/Quant4D_matlab"
 url: "https://quant4d-matlab.readthedocs.io"   # confirm the new Read the Docs slug
