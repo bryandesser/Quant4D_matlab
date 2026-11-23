@@ -89,7 +89,7 @@ Main Window
 ***********
 .. image:: ../_static/main_window.png
     :align: center
-    :target: http://quant4d.readthedocs.io/en/latest/_images/main_window.png
+    :target: http://quant4d-matlab.readthedocs.io/en/latest/_images/main_window.png
 
 The main window of the GUI has several different pages with mode-specific
 controls. The pages are as follows:
