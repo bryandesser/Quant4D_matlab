@@ -4778,19 +4778,15 @@ classdef Quant4D < matlab.apps.App
             mock_UI_callbacks(app, app.ShowDiffractionAxes);
             debug_toc(app, [], "ShowDiffractionAxes finished", debug_time2)
             debug_time2 = tic;
-            mock_UI_callbacks(app, app.ShowRealAxes)
-            debug_toc(app, [], "ShowRealAxes finished", debug_time2)
+            mock_UI_callbacks(app, app.ShowDiffractionAxes)
+            debug_toc(app, [], "ShowDiffractionAxes finished", debug_time2)
             
-            % Link axes limits for zooming. linkprop rather than linkaxes:
-            % linkaxes waits for every (still hidden) image window to render,
-            % which took ~18 s from App Designer and never finished when the
-            % app was started from the Command Window. The link objects are
-            % kept in tmp_variables; a link stops working once it is deleted.
+            % Link Axes limits for zooming, `drawnow` implied
             debug_time2 = tic;
-            app.tmp_variables.axes_links = linkprop(app.ui_groups.real_axes, ["XLim" "YLim"]);
+            linkaxes(app.ui_groups.real_axes);
             debug_toc(app, [], "real_axes finished", debug_time2)
             debug_time2 = tic;
-            app.tmp_variables.axes_links(2) = linkprop(app.ui_groups.diffraction_axes, ["XLim" "YLim"]);
+            linkaxes(app.ui_groups.diffraction_axes);
             debug_toc(app, [], "diffraction_axes finished", debug_time2)
 
             % populate variable viewer 
