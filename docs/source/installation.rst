@@ -31,7 +31,7 @@ Installing Quant4D App
     :align: right
     
 The simplest way to install `Quant4D` is via the application installer file
-(`Quant4D.mlappinstall <https://github.com/bryandesser/Quant4D_matlab/blob/master/app_installer/Quant4D.mlappinstall>`_).
+(`Quant4D.mltbx <https://github.com/bryandesser/Quant4D_matlab/blob/master/app_installer/Quant4D.mltbx>`_).
 Download and open the file, which will open MATLAB and ask to install `Quant4D`
 into **My Apps** (see below). Click `Install` and then open the app from the
 **Apps** tab on the MATLAB Toolstrip. The app may be buried on the list - if
