@@ -13,9 +13,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
       
-      - name: run convert_mlapp_to_m.py
-        run: python ./.github/workflows/convert_mlapp_to_m.py
-      
       - name: run auto_readme.py
         run: python ./.github/workflows/auto_readme.py
       
