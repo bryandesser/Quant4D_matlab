@@ -31,7 +31,7 @@ Installation
 MATLAB Requirements
 -------------------
 
-`Quant4D` is tested and stable on MATLAB R2021a or later. If performing a fresh
+`Quant4D` is tested and stable on MATLAB R2026b or later. If performing a fresh
 installation of MATLAB, please ensure the following MATLAB Toolboxes are
 selected during the installation process: 
 
