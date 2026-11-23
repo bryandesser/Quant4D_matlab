@@ -64,8 +64,8 @@ html_theme_path = ["_themes", ]
 # html_baseurl will automatically generate CNAME file on GitHub Pages during
 # the Generate and Deploy GitHub Pages workflow on GitHub Actions (make html),
 # which will automatically point bryandesser.github.io/quant4d to
-# quant4d.readthedocs.io
-html_baseurl = "https://quant4d.readthedocs.io/en/latest"
+# quant4d-matlab.readthedocs.io
+html_baseurl = "https://quant4d-matlab.readthedocs.io/en/latest"
 
 html_context = {
     "display_github": True,
