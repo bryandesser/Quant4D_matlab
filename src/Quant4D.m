@@ -4781,12 +4781,12 @@ classdef Quant4D < matlab.apps.App
             mock_UI_callbacks(app, app.ShowDiffractionAxes)
             debug_toc(app, [], "ShowDiffractionAxes finished", debug_time2)
             
-            % Link Axes limits for zooming, `drawnow` implied
+            % Link axes limits for zooming. linkprop is used instead of linkaxes, which hangs at startup on R2026b; keep the link objects in app data so they stay alive.
             debug_time2 = tic;
-            linkaxes(app.ui_groups.real_axes);
+            setappdata(app.Quant4D_Fig, "real_axes_link", linkprop(app.ui_groups.real_axes, {"XLim", "YLim"}));
             debug_toc(app, [], "real_axes finished", debug_time2)
             debug_time2 = tic;
-            linkaxes(app.ui_groups.diffraction_axes);
+            setappdata(app.Quant4D_Fig, "diffraction_axes_link", linkprop(app.ui_groups.diffraction_axes, {"XLim", "YLim"}));
             debug_toc(app, [], "diffraction_axes finished", debug_time2)
 
             % populate variable viewer 
