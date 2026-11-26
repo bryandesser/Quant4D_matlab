@@ -1,0 +1,25 @@
+services:
+  matlab-gpu-runner:
+    build: .
+    init: true
+    restart: unless-stopped
+    shm_size: 2gb
+    env_file:
+      - path: license.env
+        required: false
+    environment:
+      REPO: bryandesser/Quant4D_matlab
+      RUNNER_NAME: wsl2-rtxpro1000-matlab
+      RUNNER_TOKEN: ${RUNNER_TOKEN}
+    volumes:
+      - cuda-cache:/home/runner/.nv
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+volumes:
+  cuda-cache:
