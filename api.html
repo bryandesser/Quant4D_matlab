@@ -1,0 +1,2312 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API &mdash; Quant4D 3.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_autodoc_typehints.css?v=057ac668" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-new-tab-link.css?v=d87cb1ac" />
+
+  
+    <link rel="canonical" href="https://quant4d-matlab.readthedocs.io/en/latest/api.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=110ea713"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="License" href="license.html" />
+    <link rel="prev" title="Save/Export" href="export.html" /> 
+<meta name="google-site-verification" content="88B8Wu8mpwVWjINcWbx75MH9KXi1L5f8DUjiY9CFXQ0" />
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Quant4D
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphical_user_interface.html">Graphical user interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functionality.html">Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alignment.html">Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annular_round.html">Annular/Round detectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtual_apertures.html">Virtual apertures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dpc_com.html">DPC/CoM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_apertures.html">Custom Detectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rois.html">ROIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="export.html">Save/Export</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#quant4d-app">Quant4D app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-+quant4d">quant4d package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dm3-dm4-reader">DM3/DM4 reader</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgement.html">Acknowledgement</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Quant4D</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/bryandesser/Quant4D_matlab/blob/master/docs/source/api.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api">
+<span id="id1"></span><h1>API<a class="headerlink" href="#api" title="Link to this heading"></a></h1>
+<p>This is automatically generated API documentation, read directly from the app’s
+source in <code class="docutils literal notranslate"><span class="pre">src/</span></code>: <code class="docutils literal notranslate"><span class="pre">Quant4D.m</span></code> (the App Designer app, saved in the R2026b
+plain-text format), the <code class="docutils literal notranslate"><span class="pre">+quant4d</span></code> package of reading and detector maths
+functions the app calls, and <code class="docutils literal notranslate"><span class="pre">dmInfo.m</span></code>.</p>
+<section id="quant4d-app">
+<h2>Quant4D app<a class="headerlink" href="#quant4d-app" title="Link to this heading"></a></h2>
+<dl class="mat class" id="module-.">
+<dt class="sig sig-object mat" id="Quant4D">
+<span class="property"><span class="pre">class</span> </span><span class="sig-name descname"><span class="pre">Quant4D</span></span><a class="headerlink" href="#Quant4D" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref mat mat-class docutils literal notranslate"><span class="pre">matlab.apps.App</span></code></p>
+<div class="members docutils container">
+<dl>
+<dt>Constructor Summary</dt><dd><dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.Quant4D">
+<span class="sig-name descname"><span class="pre">Quant4D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.Quant4D" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd>
+<dt>Property Summary</dt><dd><dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.AppConfigFilename">
+<span class="sig-name descname"><span class="pre">AppConfigFilename</span></span><a class="headerlink" href="#Quant4D.AppConfigFilename" title="Link to this definition"></a></dt>
+<dd><p>File path to the app configuration file containing component layout and settings</p>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.debug">
+<span class="sig-name descname"><span class="pre">debug</span></span><a class="headerlink" href="#Quant4D.debug" title="Link to this definition"></a></dt>
+<dd><p>Debug mode. false to disable; else enables timers/tracers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#Quant4D.data" title="Link to this definition"></a></dt>
+<dd><p>Imported dataset, may be moved to GPU</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.memfile">
+<span class="sig-name descname"><span class="pre">memfile</span></span><a class="headerlink" href="#Quant4D.memfile" title="Link to this definition"></a></dt>
+<dd><p>Memory map file of the imported dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>memmapfile</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.sys_constants">
+<span class="sig-name descname"><span class="pre">sys_constants</span></span><a class="headerlink" href="#Quant4D.sys_constants" title="Link to this definition"></a></dt>
+<dd><p>Constants for system info that set at app startup</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>struct</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.tmp_variables">
+<span class="sig-name descname"><span class="pre">tmp_variables</span></span><a class="headerlink" href="#Quant4D.tmp_variables" title="Link to this definition"></a></dt>
+<dd><p>Temporary global variables, e.g. for progress bar and import etc., should never be cleared</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>struct</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.dataset_parameters">
+<span class="sig-name descname"><span class="pre">dataset_parameters</span></span><a class="headerlink" href="#Quant4D.dataset_parameters" title="Link to this definition"></a></dt>
+<dd><p>Parameters of the current imported dataset; should be constants (except for data type conversion)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>struct</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.common_parameters">
+<span class="sig-name descname"><span class="pre">common_parameters</span></span><a class="headerlink" href="#Quant4D.common_parameters" title="Link to this definition"></a></dt>
+<dd><p>Common parameters, should be cleared when a dataset is unloaded</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>struct</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.previous_values">
+<span class="sig-name descname"><span class="pre">previous_values</span></span><a class="headerlink" href="#Quant4D.previous_values" title="Link to this definition"></a></dt>
+<dd><p>Previous values, should be cleared when a dataset is unloaded</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>struct</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.figures">
+<span class="sig-name descname"><span class="pre">figures</span></span><a class="headerlink" href="#Quant4D.figures" title="Link to this definition"></a></dt>
+<dd><p>All figure windows excluding the Main UI</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>struct</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.image_axes">
+<span class="sig-name descname"><span class="pre">image_axes</span></span><a class="headerlink" href="#Quant4D.image_axes" title="Link to this definition"></a></dt>
+<dd><p>All image axes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>struct</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.images">
+<span class="sig-name descname"><span class="pre">images</span></span><a class="headerlink" href="#Quant4D.images" title="Link to this definition"></a></dt>
+<dd><p>Arrays of raw data for the <a class="reference internal" href="#Quant4D.images" title="Quant4D.images"><code class="xref mat mat-attr docutils literal notranslate"><span class="pre">images</span></code></a>/masks to be plotted/saved</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>struct</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.image_displays">
+<span class="sig-name descname"><span class="pre">image_displays</span></span><a class="headerlink" href="#Quant4D.image_displays" title="Link to this definition"></a></dt>
+<dd><p>Image objects with modified contrast for display, e.g. by <code class="docutils literal notranslate"><span class="pre">app.image_displays.(id)</span> <span class="pre">=</span> <span class="pre">imagesc(...)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>struct</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.annotations">
+<span class="sig-name descname"><span class="pre">annotations</span></span><a class="headerlink" href="#Quant4D.annotations" title="Link to this definition"></a></dt>
+<dd><p>Image <a class="reference internal" href="#Quant4D.annotations" title="Quant4D.annotations"><code class="xref mat mat-attr docutils literal notranslate"><span class="pre">annotations</span></code></a> on <cite>axes</cite> or <cite>uiaxes</cite>, excluding <a class="reference internal" href="#Quant4D.annotations" title="Quant4D.annotations"><code class="xref mat mat-attr docutils literal notranslate"><span class="pre">annotations</span></code></a> on <cite>figure</cite> and <cite>uifigure</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>struct</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.masks">
+<span class="sig-name descname"><span class="pre">masks</span></span><a class="headerlink" href="#Quant4D.masks" title="Link to this definition"></a></dt>
+<dd><p>Real and Diffraction space <a class="reference internal" href="#Quant4D.masks" title="Quant4D.masks"><code class="xref mat mat-attr docutils literal notranslate"><span class="pre">masks</span></code></a> applied to data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>struct</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.ui_groups">
+<span class="sig-name descname"><span class="pre">ui_groups</span></span><a class="headerlink" href="#Quant4D.ui_groups" title="Link to this definition"></a></dt>
+<dd><p>Different groups of figures/axes/images; assigned just once at startup in <a class="reference internal" href="#Quant4D.create_other_windows" title="Quant4D.create_other_windows"><code class="xref mat mat-meth docutils literal notranslate"><span class="pre">create_other_windows()</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>struct</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.center">
+<span class="sig-name descname"><span class="pre">center</span></span><a class="headerlink" href="#Quant4D.center" title="Link to this definition"></a></dt>
+<dd><p>Central beam absolute pixel coordinates</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>[int int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.center_rel">
+<span class="sig-name descname"><span class="pre">center_rel</span></span><a class="headerlink" href="#Quant4D.center_rel" title="Link to this definition"></a></dt>
+<dd><p>Relative position of center. [0 0] (when “Absolute” position) or center (when “Relative”)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>[int int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.diff_scale">
+<span class="sig-name descname"><span class="pre">diff_scale</span></span><a class="headerlink" href="#Quant4D.diff_scale" title="Link to this definition"></a></dt>
+<dd><p>Diffraction pixel scale. 1 (when in pixel) or mrad/px (when in mrad)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.real_scale">
+<span class="sig-name descname"><span class="pre">real_scale</span></span><a class="headerlink" href="#Quant4D.real_scale" title="Link to this definition"></a></dt>
+<dd><p>Real-space pixel scale. 1 (when in pixel) or nm/px (when in nm). Not implemented yet</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.variable_nodes">
+<span class="sig-name descname"><span class="pre">variable_nodes</span></span><a class="headerlink" href="#Quant4D.variable_nodes" title="Link to this definition"></a></dt>
+<dd><p>uitree nodes to display variables for users</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>struct</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="Quant4D.byte_size">
+<span class="sig-name descname"><span class="pre">byte_size</span></span><a class="headerlink" href="#Quant4D.byte_size" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd>
+<dt>Method Summary</dt><dd><dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.enable_virtual_aperture_UI">
+<span class="sig-name descname"><span class="pre">enable_virtual_aperture_UI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.enable_virtual_aperture_UI" title="Link to this definition"></a></dt>
+<dd><p>Function to update UI enable/disable states</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.limit_virtual_aperture_UI">
+<span class="sig-name descname"><span class="pre">limit_virtual_aperture_UI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.limit_virtual_aperture_UI" title="Link to this definition"></a></dt>
+<dd><p>Function to update UIs Limits/Labels for coordinate options</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.draw_virtual_aperture_annotation">
+<span class="sig-name descname"><span class="pre">draw_virtual_aperture_annotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.draw_virtual_aperture_annotation" title="Link to this definition"></a></dt>
+<dd><p>Function to draw virtual aperture annotations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.move_virtual_aperture">
+<span class="sig-name descname"><span class="pre">move_virtual_aperture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">source</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.move_virtual_aperture" title="Link to this definition"></a></dt>
+<dd><p>Live update function for virtual aperture annotations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>source</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">images.roi.Circle</span> <span class="pre">|</span> <span class="pre">images.roi.Point</span></code>) – virtual aperture annotations</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>) – ROIMoved, MovingROI</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.auto_align">
+<span class="sig-name descname"><span class="pre">auto_align</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.auto_align" title="Link to this definition"></a></dt>
+<dd><p>Auto-align transmitted beam</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.cross_align">
+<span class="sig-name descname"><span class="pre">cross_align</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.cross_align" title="Link to this definition"></a></dt>
+<dd><p>Function to align the transmitted beam to the intersection of two lines</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.move_transmitted_beam">
+<span class="sig-name descname"><span class="pre">move_transmitted_beam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">source</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.move_transmitted_beam" title="Link to this definition"></a></dt>
+<dd><p>Function to sync UIs/ROIs depending on the central beam location</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>source</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">images.roi.Circle</span></code>) – transmitted beam annotation</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>) – ROIMoved, MovingROI</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.get_import_info">
+<span class="sig-name descname"><span class="pre">get_import_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.get_import_info" title="Link to this definition"></a></dt>
+<dd><p>Function to update current dataset import parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>notes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – collection of import parameters for display to the user</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.export_data">
+<span class="sig-name descname"><span class="pre">export_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.export_data" title="Link to this definition"></a></dt>
+<dd><p>Function to export data as <cite>.h5</cite> or <cite>.raw</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>err</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span> <span class="pre">|</span> <span class="pre">bool</span></code>) – error code, default: false, -1 if an error has occurred</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.update_export_range">
+<span class="sig-name descname"><span class="pre">update_export_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.update_export_range" title="Link to this definition"></a></dt>
+<dd><p>Save images based on the user selections on the Save/Export UI</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>pixels_dist</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – binning distance in diffraction space</p></li>
+<li><p><strong>pixels_start</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – starting pixel index in diffraction space (default: 1, unless cropping)</p></li>
+<li><p><strong>n_pixels</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – number of pixels to be exported in diffraction space</p></li>
+<li><p><strong>pixels_end</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – final pixel index in diffraction space (default: n_pixels, unless cropping)</p></li>
+<li><p><strong>frames_dist</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – sub-sampling distance in real space</p></li>
+<li><p><strong>frames_start</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – starting frame index in real space (default: 1, unless sub-sampling)</p></li>
+<li><p><strong>n_frames</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – number of frames to be exported in real space</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.move_export_annotation">
+<span class="sig-name descname"><span class="pre">move_export_annotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">~</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.move_export_annotation" title="Link to this definition"></a></dt>
+<dd><p>Update Export Data boundaries as user change the Export Data Annotations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>source</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">images.roi.Rectangle</span></code>) – real-space export annotations, ignored</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.update_prefix">
+<span class="sig-name descname"><span class="pre">update_prefix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.update_prefix" title="Link to this definition"></a></dt>
+<dd><p>Update image name prefix on the Save/Export UI</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.save_images">
+<span class="sig-name descname"><span class="pre">save_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.save_images" title="Link to this definition"></a></dt>
+<dd><p>Save images based on the user selections on the Save/Export UI</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.check_GPU_memory">
+<span class="sig-name descname"><span class="pre">check_GPU_memory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">n_pixels</span></em>, <em class="sig-param"><span class="pre">n_frames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.check_GPU_memory" title="Link to this definition"></a></dt>
+<dd><p>Check the amount of GPU memory on the available GPU(s),
+compare with the estimated memory from <cite>check_memory()</cite> and
+warn if incompatible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>n_pixels</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – number of pixels in Diffraction space</p></li>
+<li><p><strong>n_frames</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – number of probe positions in Real space</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>gpu_note</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – report on memory usage for the user</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.check_memory">
+<span class="sig-name descname"><span class="pre">check_memory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em>, <em class="sig-param"><span class="pre">n_pixels</span></em>, <em class="sig-param"><span class="pre">n_frames</span></em>, <em class="sig-param"><span class="pre">bytesize</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.check_memory" title="Link to this definition"></a></dt>
+<dd><p>Check the amount of system memory available, estimate the
+required memory, compare and warn if incompatible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>n_pixels</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – number of pixels in Diffraction space</p></li>
+<li><p><strong>n_frames</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – number of probe positions in Real space</p></li>
+<li><p><strong>bytesize</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – size of the data type in bytes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>memory_note</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – report on memory usage for the user</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.guess_frames_from_dim3">
+<span class="sig-name descname"><span class="pre">guess_frames_from_dim3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">dim3</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.guess_frames_from_dim3" title="Link to this definition"></a></dt>
+<dd><p>Guess number of real space frames in X and Y when a dataset is read
+in as 3D, rather than 4D.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>dim3</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Total number of real-space frames in a 4D dataset that has been read in as 3D.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.get_dims_from_name">
+<span class="sig-name descname"><span class="pre">get_dims_from_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.get_dims_from_name" title="Link to this definition"></a></dt>
+<dd><p>Guess dataset size from <cite>filename</cite> if it contains certain
+regular expressions. Where A, B, C, D are integers. (A,B) = #
+pixels in Diffraction space. (C,D) = # probe positions in
+Real space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>filename</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – ‘prefixAxBxCxDbar’ or ‘scan_xC_yD.raw’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.guess_frames_from_size">
+<span class="sig-name descname"><span class="pre">guess_frames_from_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.guess_frames_from_size" title="Link to this definition"></a></dt>
+<dd><p>Make an initial guess at the dataset dimensions assuming a roughly
+square field of view (ImportFramesX≈ImportFramesY). Sets the
+estimated values in their respective numeric fields in the Import UI</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.import_data">
+<span class="sig-name descname"><span class="pre">import_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.import_data" title="Link to this definition"></a></dt>
+<dd><p>Function to prepare for dataset import, read the file, and
+switch the UI to <cite>Alignment</cite> mode</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.read_file">
+<span class="sig-name descname"><span class="pre">read_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.read_file" title="Link to this definition"></a></dt>
+<dd><p>Function to read the dataset from file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>err</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span> <span class="pre">|</span> <span class="pre">bool</span></code>) – error code, default: false, -1 if an error has occurred</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.import_progress">
+<span class="sig-name descname"><span class="pre">import_progress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">done</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.import_progress" title="Link to this definition"></a></dt>
+<dd><p>Progress callback for <a class="reference internal" href="#quant4d.readRaw" title="quant4d.readRaw"><code class="xref mat mat-func docutils literal notranslate"><span class="pre">quant4d.readRaw()</span></code></a> / <a class="reference internal" href="#quant4d.readHDF5" title="quant4d.readHDF5"><code class="xref mat mat-func docutils literal notranslate"><span class="pre">quant4d.readHDF5()</span></code></a>: updates the
+import progress bar and cancels the import when its window is closed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>done</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – blocks read so far</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>keep_going</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – false once the progress window has been closed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.prepare_data">
+<span class="sig-name descname"><span class="pre">prepare_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.prepare_data" title="Link to this definition"></a></dt>
+<dd><p>Initialize GUI/Image/app.common_parameters defaults based
+on the specifics of the imported dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.gather_import_options">
+<span class="sig-name descname"><span class="pre">gather_import_options</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">preview</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.gather_import_options" title="Link to this definition"></a></dt>
+<dd><p>Collects all import parameters from the Import UI into a
+structure, <cite>d</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>preview</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – true = Preview mode, false = Import mode</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>d</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">struct</span></code>) – dataset parameters from Import UI</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.switch_on_off">
+<span class="sig-name descname"><span class="pre">switch_on_off</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">~</span></em>, <em class="sig-param"><span class="pre">status</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.switch_on_off" title="Link to this definition"></a></dt>
+<dd><p>Wrapper function for MATLAB’s <cite>OnOffSwitchState()</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>) – ignored</p></li>
+<li><p><strong>status</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span> <span class="pre">|</span> <span class="pre">bool</span></code>) – 0 or false = off; 1 or true = on</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>output</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – “on”, “off”</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.set_external_source">
+<span class="sig-name descname"><span class="pre">set_external_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em>, <em class="sig-param"><span class="pre">object</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.set_external_source" title="Link to this definition"></a></dt>
+<dd><p>Set properties of objects that are not <cite>source</cite> if it is a changing event</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+<li><p><strong>object</strong> – UI component, annotation, list of objects with a common property</p></li>
+<li><p><strong>varargin</strong> – property/value pair(s) (i.e. “Value”, 1)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.rotation_matrix">
+<span class="sig-name descname"><span class="pre">rotation_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">~</span></em>, <em class="sig-param"><span class="pre">degrees</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.rotation_matrix" title="Link to this definition"></a></dt>
+<dd><p>Rotation matrix, for degree input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>) – ignored</p></li>
+<li><p><strong>degrees</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – angle in degrees</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>R</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array</span></code>) – 2D rotation matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.is_static_event">
+<span class="sig-name descname"><span class="pre">is_static_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">~</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.is_static_event" title="Link to this definition"></a></dt>
+<dd><p>Function to test whether an event is NOT “MovingROI” or
+“ValueChanging”; return <cite>true</cite> for <cite>[]</cite> etc. This helps
+to reduce computational load, especially on image refresh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>) – ignored</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>status</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – true if <cite>event</cite> is static; else false</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.h5_datasets">
+<span class="sig-name descname"><span class="pre">h5_datasets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">~</span></em>, <em class="sig-param"><span class="pre">file</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.h5_datasets" title="Link to this definition"></a></dt>
+<dd><p>Return all h5 Datasets with some key info</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>) – ignored</p></li>
+<li><p><strong>file</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – file path from app.ImportFilePath.Value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>h</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">struct</span></code>) – h5 Dataset information, including Name, Dataspace, Datatype, offset, size, byte_ordering, and type.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.debug_toc">
+<span class="sig-name descname"><span class="pre">debug_toc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em>, <em class="sig-param"><span class="pre">notes</span></em>, <em class="sig-param"><span class="pre">tic_start</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.debug_toc" title="Link to this definition"></a></dt>
+<dd><p>Function to debug and time functions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+<li><p><strong>notes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – debugging information</p></li>
+<li><p><strong>tic_start</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">uint64</span></code>) – stopwatch timer start</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.flash_background">
+<span class="sig-name descname"><span class="pre">flash_background</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">~</span></em>, <em class="sig-param"><span class="pre">target</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.flash_background" title="Link to this definition"></a></dt>
+<dd><p>Function to flash the background of UIs, which have
+<cite>BackgroundColor</cite>. This process will pause the whole
+program during flashing</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>) – ignored</p></li>
+<li><p><strong>target</strong> – UI component</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.change_icon_background">
+<span class="sig-name descname"><span class="pre">change_icon_background</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">source</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.change_icon_background" title="Link to this definition"></a></dt>
+<dd><p>state button background color change to highlight when it
+is/isn’t enabled</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>source</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">matlab.ui.control.Button</span></code>) – UI State Button</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.get_GPU">
+<span class="sig-name descname"><span class="pre">get_GPU</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.get_GPU" title="Link to this definition"></a></dt>
+<dd><p>Function to get all available GPUs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.get_memory">
+<span class="sig-name descname"><span class="pre">get_memory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.get_memory" title="Link to this definition"></a></dt>
+<dd><p>Function to Check usable system memory and make sure the
+file will fit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.range_import_export">
+<span class="sig-name descname"><span class="pre">range_import_export</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.range_import_export" title="Link to this definition"></a></dt>
+<dd><p>Function to calculate import/export range for pixels/frames</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>notes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Diffraction or Real space-dependent notes on import range and binning</p></li>
+<li><p><strong>binning</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – binning distance in Diffraction, sub-sampling distance in Real</p></li>
+<li><p><strong>xy_start</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – starting pixels or frames in x,y</p></li>
+<li><p><strong>n_points</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – number of pixels or frames in x,y</p></li>
+<li><p><strong>xy_end</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – ending pixels or frames in x,y</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.import_export_progress">
+<span class="sig-name descname"><span class="pre">import_export_progress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">process</span></em>, <em class="sig-param"><span class="pre">n_frames</span></em>, <em class="sig-param"><span class="pre">frame_size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.import_export_progress" title="Link to this definition"></a></dt>
+<dd><p>Function for progress bar of data import/export, with a <cite>timer()</cite> to update its progress per second</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>process</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – “Import”, “Export”</p></li>
+<li><p><strong>n_frames</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – total number of Real space frames (i.e. rx*ry)</p></li>
+<li><p><strong>frame_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – frame size in bytes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>wait_bar</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">matlab.ui.Figure</span></code>) – waitbar to display progress</p></li>
+<li><p><strong>tmr</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">timer</span></code>) – 1 Hz timer to update progress bar information (i.e. import rate)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.import_mask">
+<span class="sig-name descname"><span class="pre">import_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">space</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.import_mask" title="Link to this definition"></a></dt>
+<dd><p>Function to import mask for given (diffraction/real) space</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>space</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – “Real”, “Diffraction”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>mask</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array</span></code>) – array imported by user to mask Real or Diffraction space</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.plot_all_patterns">
+<span class="sig-name descname"><span class="pre">plot_all_patterns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.plot_all_patterns" title="Link to this definition"></a></dt>
+<dd><p>Wrapper function for (re)plotting all images</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.plot_image">
+<span class="sig-name descname"><span class="pre">plot_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em>, <em class="sig-param"><span class="pre">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.plot_image" title="Link to this definition"></a></dt>
+<dd><p>Generic function for plotting an image on a given axis with brightness/contrast/gamma values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+<li><p><strong>id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – image identification string</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.is_different_to_previous">
+<span class="sig-name descname"><span class="pre">is_different_to_previous</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">name</span></em>, <em class="sig-param"><span class="pre">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.is_different_to_previous" title="Link to this definition"></a></dt>
+<dd><p>Function to check whether the given name value is changed
+compared to the previous value, and store the new value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – field name in app.previous_values</p></li>
+<li><p><strong>value</strong> – value of app.previous_values.(name) to be tested for update</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>status</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Whether app.previous_values.(name) ~= value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.to_update_image">
+<span class="sig-name descname"><span class="pre">to_update_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.to_update_image" title="Link to this definition"></a></dt>
+<dd><p>Function to determine whether to update images. Return
+true if any: 1) <cite>app.CalculationPolicy.Value</cite> is 2
+(active update) OR 2) <cite>app.CalculationPolicy.Value</cite> is 1
+(reduced) and not when changing OR 3) is a manual update
+(from update buttons or detector mode change)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>to_update</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Whether or not image(s) should be updated at the time of calling based on app.CalculationPolicy and current user interactions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.mock_UI_callbacks">
+<span class="sig-name descname"><span class="pre">mock_UI_callbacks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">source</span></em>, <em class="sig-param"><span class="pre">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.mock_UI_callbacks" title="Link to this definition"></a></dt>
+<dd><p>Function to mock UI callbacks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>source</strong> – UI elements</p></li>
+<li><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – additional information to be passed along to further function calls</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.notification_dialog">
+<span class="sig-name descname"><span class="pre">notification_dialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">icon</span></em>, <em class="sig-param"><span class="pre">msg</span></em>, <em class="sig-param"><span class="pre">title_name</span></em>, <em class="sig-param"><span class="pre">option</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.notification_dialog" title="Link to this definition"></a></dt>
+<dd><p>Wrapper for notification dialog; use <cite>sprintf()</cite> before calling this function to process “n” in <cite>message</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>icon</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – “quest”, “list”, “help”, “warn”, “error”, “none”, “”</p></li>
+<li><p><strong>msg</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – dialog message</p></li>
+<li><p><strong>title_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – dialog title</p></li>
+<li><p><strong>option</strong> – dialog selection options</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>selection</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span> <span class="pre">|</span> <span class="pre">int</span></code>) – user response</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.progress_dialog">
+<span class="sig-name descname"><span class="pre">progress_dialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">msg</span></em>, <em class="sig-param"><span class="pre">title_name</span></em>, <em class="sig-param"><span class="pre">interruptible</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.progress_dialog" title="Link to this definition"></a></dt>
+<dd><p>Wrapper for <cite>waitbar</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>msg</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – dialog message</p></li>
+<li><p><strong>title_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – dialog title</p></li>
+<li><p><strong>interruptible</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – can the dialog be interrupted</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>wait_bar</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">matlab.ui.Figure</span></code>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.unload_data">
+<span class="sig-name descname"><span class="pre">unload_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">swap_data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.unload_data" title="Link to this definition"></a></dt>
+<dd><p>Function to unload data and clean all images; swap_data
+keeps all previous parameters and simply swaps out data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>swap_data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – swap dataset (true), unload all data (false)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.enable_windows">
+<span class="sig-name descname"><span class="pre">enable_windows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">state</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.enable_windows" title="Link to this definition"></a></dt>
+<dd><p>Function to enable/disable windows/UI; disable is only
+for notification/progress bar/busy background, etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>state</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – enable (true) or disable (false) all windows</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.create_other_windows">
+<span class="sig-name descname"><span class="pre">create_other_windows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.create_other_windows" title="Link to this definition"></a></dt>
+<dd><p>Function to create other UI windows and Image figures</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.check_NaN">
+<span class="sig-name descname"><span class="pre">check_NaN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">image</span></em>, <em class="sig-param"><span class="pre">preview</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.check_NaN" title="Link to this definition"></a></dt>
+<dd><p>Function to check NaN/Inf in data/image</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>image</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array</span></code>) – image to be checked for the presence of NaNs</p></li>
+<li><p><strong>preview</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>selection</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.get_screen_info">
+<span class="sig-name descname"><span class="pre">get_screen_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.get_screen_info" title="Link to this definition"></a></dt>
+<dd><p>Function to check the size of various screen attributes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.get_sys_constants">
+<span class="sig-name descname"><span class="pre">get_sys_constants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.get_sys_constants" title="Link to this definition"></a></dt>
+<dd><p>Function to get/set system constants</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.save_vector_field">
+<span class="sig-name descname"><span class="pre">save_vector_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.save_vector_field" title="Link to this definition"></a></dt>
+<dd><p>Function to save vector field images.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.clear_detectors">
+<span class="sig-name descname"><span class="pre">clear_detectors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.clear_detectors" title="Link to this definition"></a></dt>
+<dd><p>Function to delete plotted detectors if they exist.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.draw_real_ROI">
+<span class="sig-name descname"><span class="pre">draw_real_ROI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em>, <em class="sig-param"><span class="pre">roi_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.draw_real_ROI" title="Link to this definition"></a></dt>
+<dd><p>Function to draw Real-space ROI of various shapes on real space image(s)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+<li><p><strong>roi_type</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – “full”, “point”, “ellipse”, “rectangle”, “poly”, “file”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.move_real_ROI">
+<span class="sig-name descname"><span class="pre">move_real_ROI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">source</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.move_real_ROI" title="Link to this definition"></a></dt>
+<dd><p>Function to move Real-space ROIs on real space image(s)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>source</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">images.roi.Rectangle</span> <span class="pre">|</span> <span class="pre">images.roi.Point</span> <span class="pre">|</span> <span class="pre">images.roi.Ellipse</span> <span class="pre">|</span> <span class="pre">images.roi.Polygon</span></code>) – Real-space ROIs</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.get_fields">
+<span class="sig-name descname"><span class="pre">get_fields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">tree_node</span></em>, <em class="sig-param"><span class="pre">variable_struct</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.get_fields" title="Link to this definition"></a></dt>
+<dd><p>Function to recursively get all fields on a TreeNode so the
+user can view important internal variables and values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>tree_node</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">TreeNode</span></code>) – matlab.ui.container.TreeNode</p></li>
+<li><p><strong>variable_struct</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">struct</span></code>) – structure containing variables or parameters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.preview_frame">
+<span class="sig-name descname"><span class="pre">preview_frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">probe_position</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.preview_frame" title="Link to this definition"></a></dt>
+<dd><p>Function to import a single detector frame for previewing</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>probe_position</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – probe position to be previewed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array</span></code>) – detector frame, cropped and binned as set by the user</p></li>
+<li><p><strong>err</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – fseek status for error handling</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.startup_function">
+<span class="sig-name descname"><span class="pre">startup_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">debug</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.startup_function" title="Link to this definition"></a></dt>
+<dd><p>Code that executes after component creation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>debug</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Enable (true), disable (false) timings for debugging</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.import_callbacks">
+<span class="sig-name descname"><span class="pre">import_callbacks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.import_callbacks" title="Link to this definition"></a></dt>
+<dd><p>Function called when the user clicks ImportData,
+CancelImport, or ShowImportWindow (on the main UI).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.import_select_file">
+<span class="sig-name descname"><span class="pre">import_select_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.import_select_file" title="Link to this definition"></a></dt>
+<dd><p>Function called when the user clicks Select or updates
+the file path on the Import UI (<cite>ImportFileSelect</cite> and
+<cite>ImportFilePath</cite>, respectively)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.import_file_type">
+<span class="sig-name descname"><span class="pre">import_file_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.import_file_type" title="Link to this definition"></a></dt>
+<dd><p>Function called when the user selects a new file type
+category (<cite>FileTypeButtonGroup</cite>) or selects a new <cite>SubDataset</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.import_box_input">
+<span class="sig-name descname"><span class="pre">import_box_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.import_box_input" title="Link to this definition"></a></dt>
+<dd><p>Function called when the user interacts with the Import UI</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.save_callbacks">
+<span class="sig-name descname"><span class="pre">save_callbacks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.save_callbacks" title="Link to this definition"></a></dt>
+<dd><p>Function called when the user interacts with the Save/Export UI</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.export_callbacks">
+<span class="sig-name descname"><span class="pre">export_callbacks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.export_callbacks" title="Link to this definition"></a></dt>
+<dd><p>Function called when the user interacts with the Save/Export UI</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.axis_direction_callbacks">
+<span class="sig-name descname"><span class="pre">axis_direction_callbacks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.axis_direction_callbacks" title="Link to this definition"></a></dt>
+<dd><p>Function called when the user modifies the axis orientation
+in diffraction or real space</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.display_callbacks">
+<span class="sig-name descname"><span class="pre">display_callbacks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.display_callbacks" title="Link to this definition"></a></dt>
+<dd><p>Function to update all aspects of the image display,
+including brightness, contrast, gamma, colormap, histogram,
+vector field, and mask opacity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.realspace_ROI_callbacks">
+<span class="sig-name descname"><span class="pre">realspace_ROI_callbacks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.realspace_ROI_callbacks" title="Link to this definition"></a></dt>
+<dd><p>Function to update the real space ROI based on the selected
+type and location from the main UI, as well as to update the
+diffraction pattern accordingly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.detector_mode_callbacks">
+<span class="sig-name descname"><span class="pre">detector_mode_callbacks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.detector_mode_callbacks" title="Link to this definition"></a></dt>
+<dd><p>Function called when the mode changes, either by the user or
+programmatically (i.e. Preview -&gt; Alignment, or between any
+of the available imaging modes).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.detector_coordinates_callbacks">
+<span class="sig-name descname"><span class="pre">detector_coordinates_callbacks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.detector_coordinates_callbacks" title="Link to this definition"></a></dt>
+<dd><p>Function called when the users selects a different coordinate
+system (“Polar” or “Cartesian”), positioning system
+(“Relative” or “Absolute”), or unit (“mrad” or “pixels”); as
+well as if the user changes the annular integration step
+size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.dataset_options_callbacks">
+<span class="sig-name descname"><span class="pre">dataset_options_callbacks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.dataset_options_callbacks" title="Link to this definition"></a></dt>
+<dd><p>Function called when the user request a swap of data byte
+ordering (i.e. big endian -&gt; little endian), real space x,y
+(i.e. [kx, ky, rx, ry] -&gt; [kx, ky, ry, rx]), or diffraction
+space x,y (i.e. [kx, ky, rx, ry] -&gt; [ky, kx, rx, ry]).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.preview_callbacks">
+<span class="sig-name descname"><span class="pre">preview_callbacks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.preview_callbacks" title="Link to this definition"></a></dt>
+<dd><p>Function called when the user request to preview a
+diffraction pattern before importing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.transmitted_beam_callbacks">
+<span class="sig-name descname"><span class="pre">transmitted_beam_callbacks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.transmitted_beam_callbacks" title="Link to this definition"></a></dt>
+<dd><p>Function called when the user interacts with UI elements on
+the <cite>Alignment</cite> tab of the main UI (i.e. convergence angle,
+transmitted beam x/y/radius, AutoAlign, etc.)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.annular_detector_callbacks">
+<span class="sig-name descname"><span class="pre">annular_detector_callbacks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.annular_detector_callbacks" title="Link to this definition"></a></dt>
+<dd><p>Function called when the user interacts with UI elements on
+the <cite>Annular/Round</cite>, <cite>Segmented (DPC)</cite>, and <cite>Center of Mass</cite>
+tabs of the main UI (i.e. inner/outer annular angles,
+segmented detector controls, scan direction alignment, etc.)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.virtual_aperture_callbacks">
+<span class="sig-name descname"><span class="pre">virtual_aperture_callbacks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.virtual_aperture_callbacks" title="Link to this definition"></a></dt>
+<dd><p>Function called to during all virtual aperture interactions,
+including entering the <cite>Virtual Aperture</cite> mode, drawing
+virtual aperture annotations, and updating UI elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.custom_detector_callbacks">
+<span class="sig-name descname"><span class="pre">custom_detector_callbacks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.custom_detector_callbacks" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.first_moment">
+<span class="sig-name descname"><span class="pre">first_moment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.first_moment" title="Link to this definition"></a></dt>
+<dd><p>Function called when the user applies a filter to iDPC/dDPC
+or iCoM/dCoM images, or saves a vector field image</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.show_window">
+<span class="sig-name descname"><span class="pre">show_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.show_window" title="Link to this definition"></a></dt>
+<dd><p>Function called when the user presses any of the Show*Window
+buttons</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.resize_window">
+<span class="sig-name descname"><span class="pre">resize_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.resize_window" title="Link to this definition"></a></dt>
+<dd><p>Function called when the user sets the size of one or more
+windows from the <cite>Window size and orientation</cite> panel in the
+<cite>Windows</cite> tab of the Settings UI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.update_images">
+<span class="sig-name descname"><span class="pre">update_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.update_images" title="Link to this definition"></a></dt>
+<dd><p>Function called when the user changes the CalculationPolicy
+(<cite>Active</cite>, <cite>Reduced</cite> or <cite>Passive</cite>) or explicitly refreshes
+the images (can also be called programmatically).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.reset_Quant4D">
+<span class="sig-name descname"><span class="pre">reset_Quant4D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.reset_Quant4D" title="Link to this definition"></a></dt>
+<dd><p>Function to revert all UI properties to their initial state
+and unload all data from RAM and the GPU, if used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.enable_all_UI">
+<span class="sig-name descname"><span class="pre">enable_all_UI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.enable_all_UI" title="Link to this definition"></a></dt>
+<dd><p>Context menu item to re-enable all UI elements. Mostly used
+for debugging.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.test1">
+<span class="sig-name descname"><span class="pre">test1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.test1" title="Link to this definition"></a></dt>
+<dd><p>User editable function for debugging.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.test2">
+<span class="sig-name descname"><span class="pre">test2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.test2" title="Link to this definition"></a></dt>
+<dd><p>User editable function for debugging.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.close_function">
+<span class="sig-name descname"><span class="pre">close_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.close_function" title="Link to this definition"></a></dt>
+<dd><p>Function called to ensure that all figure windows and any
+progress dialogs are closed when the app exits.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="Quant4D.variable_viewer">
+<span class="sig-name descname"><span class="pre">variable_viewer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">app</span></em>, <em class="sig-param"><span class="pre">event</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Quant4D.variable_viewer" title="Link to this definition"></a></dt>
+<dd><p>Function used to display or hide the variable viewer treenode
+in the Settings UI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app</strong> (<a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>)</p></li>
+<li><p><strong>event</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">event.EventData</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-+quant4d">
+<span id="quant4d-package"></span><h2>quant4d package<a class="headerlink" href="#module-+quant4d" title="Link to this heading"></a></h2>
+<p>Pure functions used by the app (file readers, annular/CoM/DPC detectors,
+iCoM/dCoM, scan-rotation search). They need no GUI, so they can be called from
+scripts and are covered by the unit tests in <code class="docutils literal notranslate"><span class="pre">tests/unit</span></code>. Call them with the
+package prefix, e.g. <code class="docutils literal notranslate"><span class="pre">quant4d.readRaw(...)</span></code>.</p>
+<dl class="mat function">
+<dt class="sig sig-object mat" id="quant4d.dpcCoM">
+<span class="sig-prename descclassname"><span class="pre">quant4d.</span></span><span class="sig-name descname"><span class="pre">dpcCoM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">data</span></em>, <em class="sig-param"><span class="pre">segMasks</span></em>, <em class="sig-param"><span class="pre">annularMask</span></em>, <em class="sig-param"><span class="pre">centroids</span></em>, <em class="sig-param"><span class="pre">nFrames</span></em>, <em class="sig-param"><span class="pre">scanRotationDeg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quant4d.dpcCoM" title="Link to this definition"></a></dt>
+<dd><p>DPCCOM Centre-of-mass estimate from a segmented (DPC) detector.</p>
+<p>Each segment’s signal is divided by the total in the annulus and weighted by its
+centroid. With many segments and rungs this converges to <a class="reference internal" href="#quant4d.centerOfMass" title="quant4d.centerOfMass"><code class="xref mat mat-func docutils literal notranslate"><span class="pre">quant4d.centerOfMass()</span></code></a>
+with the same annulus.</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">comx</span><span class="p">,</span> <span class="n">comy</span><span class="p">]</span> <span class="o">=</span> <span class="n">quant4d</span><span class="o">.</span><span class="n">dpcCoM</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">segMasks</span><span class="p">,</span> <span class="n">annularMask</span><span class="p">,</span> <span class="n">centroids</span><span class="p">,</span> <span class="n">nFrames</span><span class="p">,</span> <span class="n">scanDeg</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array</span></code>) – prod(nPixels) x prod(nFrames), as app.data (CPU or gpuArray)</p></li>
+<li><p><strong>segMasks</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">logical</span></code>) – from <a class="reference internal" href="#quant4d.segmentMasks" title="quant4d.segmentMasks"><code class="xref mat mat-func docutils literal notranslate"><span class="pre">quant4d.segmentMasks()</span></code></a></p></li>
+<li><p><strong>annularMask</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">logical</span></code>) – [kx ky] full annulus, for normalisation</p></li>
+<li><p><strong>centroids</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – from <a class="reference internal" href="#quant4d.segmentCentroids" title="quant4d.segmentCentroids"><code class="xref mat mat-func docutils literal notranslate"><span class="pre">quant4d.segmentCentroids()</span></code></a>, same rotation as the masks</p></li>
+<li><p><strong>nFrames</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – scan size [rx ry]</p></li>
+<li><p><strong>scanRotationDeg</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – scan rotation, applied once to the result</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>comx</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span> <span class="pre">|</span> <span class="pre">single</span></code>) – [rx ry] x component in detector pixels</p></li>
+<li><p><strong>comy</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span> <span class="pre">|</span> <span class="pre">single</span></code>) – [rx ry] y component; multiply by mrad/px for mrad</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="quant4d.screenInfo">
+<span class="sig-prename descclassname"><span class="pre">quant4d.</span></span><span class="sig-name descname"><span class="pre">screenInfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#quant4d.screenInfo" title="Link to this definition"></a></dt>
+<dd><p>SCREENINFO Screen size, usable work area and window-decoration sizes, without needing Java.</p>
+<p>Replaces the Java (java.awt / javax.swing) calls in the app’s get_screen_info,
+which fail in MATLAB releases that ship without a Java runtime (R2026b by
+default). Uses Java when it is available, .NET on Windows otherwise, and fixed
+defaults as a last resort. All sizes are in MATLAB pixels.</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">info</span> <span class="o">=</span> <span class="n">quant4d</span><span class="o">.</span><span class="n">screenInfo</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>info</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">struct</span></code>) – fields screen_size, monitor_positions, screen_pixel_scale,
+title_height, decor_height, decor_width and screen_avail
+([left bottom width height] of the main screen excluding the taskbar),
+plus source (“java”, “dotnet” or “default”)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="quant4d.periodsToBand">
+<span class="sig-prename descclassname"><span class="pre">quant4d.</span></span><span class="sig-name descname"><span class="pre">periodsToBand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">periods</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quant4d.periodsToBand" title="Link to this definition"></a></dt>
+<dd><p>PERIODSTOBAND iCoM/dCoM band-pass from feature sizes in scan pixels.</p>
+<p>Keeps features whose repeat length is between minPx and maxPx scan pixels: maxPx
+sets the low-frequency cut (slow background, drift) and minPx the high-frequency
+cut (noise). minPx &lt;= 1 and maxPx &gt;= the larger scan size (or Inf) mean no
+filtering. The order of the two values does not matter.</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">band</span> <span class="o">=</span> <span class="n">quant4d</span><span class="o">.</span><span class="n">periodsToBand</span><span class="p">([</span><span class="n">minPx</span> <span class="n">maxPx</span><span class="p">])</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>periods</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[double</span> <span class="pre">double]</span></code>) – smallest and largest feature size in scan pixels</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>band</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[double</span> <span class="pre">double]</span></code>) – [1/maxPx 1/minPx] in cycles per pixel, for
+<a class="reference internal" href="#quant4d.integrateCoM" title="quant4d.integrateCoM"><code class="xref mat mat-func docutils literal notranslate"><span class="pre">quant4d.integrateCoM()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="quant4d.minimizeCurl">
+<span class="sig-prename descclassname"><span class="pre">quant4d.</span></span><span class="sig-name descname"><span class="pre">minimizeCurl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">comx</span></em>, <em class="sig-param"><span class="pre">comy</span></em>, <em class="sig-param"><span class="pre">scanDeg</span></em>, <em class="sig-param"><span class="pre">flipY</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quant4d.minimizeCurl" title="Link to this definition"></a></dt>
+<dd><p>MINIMIZECURL Scan rotation and y flip that make a CoM field curl-free.</p>
+<p>The CoM of a thin specimen is a gradient field, so the right scan rotation and
+flip make its curl vanish. The rotation is found to 0.1 degrees; the 180-degree
+ambiguity, which the curl cannot see, is resolved by preferring positive total
+divergence, as the app did. Replaces the app’s minimize_curl: NaN frames no longer
+break it and the Mapping Toolbox is no longer needed.</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">scanDeg</span><span class="p">,</span> <span class="n">flipY</span><span class="p">]</span> <span class="o">=</span> <span class="n">quant4d</span><span class="o">.</span><span class="n">minimizeCurl</span><span class="p">(</span><span class="n">comx</span><span class="p">,</span> <span class="n">comy</span><span class="p">,</span> <span class="n">scanDeg</span><span class="p">,</span> <span class="n">flipY</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>comx</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – current CoM x image [rx ry], computed with the current settings</p></li>
+<li><p><strong>comy</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – current CoM y image [rx ry]</p></li>
+<li><p><strong>scanDeg</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – current scan rotation in degrees</p></li>
+<li><p><strong>flipY</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – current y flip</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>scanDeg</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – scan rotation to use, -180 to 180 degrees</p></li>
+<li><p><strong>flipY</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – y flip to use</p></li>
+<li><p><strong>curlScore</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – remaining mean absolute curl</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="quant4d.centerOfMass">
+<span class="sig-prename descclassname"><span class="pre">quant4d.</span></span><span class="sig-name descname"><span class="pre">centerOfMass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">data</span></em>, <em class="sig-param"><span class="pre">mask</span></em>, <em class="sig-param"><span class="pre">center</span></em>, <em class="sig-param"><span class="pre">nFrames</span></em>, <em class="sig-param"><span class="pre">opts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quant4d.centerOfMass" title="Link to this definition"></a></dt>
+<dd><p>CENTEROFMASS Centre-of-mass images from a masked detector (“Center of Mass” mode).</p>
+<p>Same maths as the “CoM” branch of the app’s integrate_CoM. Frames with no counts
+inside the mask give NaN.</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">comx</span><span class="p">,</span> <span class="n">comy</span><span class="p">]</span> <span class="o">=</span> <span class="n">quant4d</span><span class="o">.</span><span class="n">centerOfMass</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">nFrames</span><span class="p">)</span>
+<span class="p">[</span><span class="n">comx</span><span class="p">,</span> <span class="n">comy</span><span class="p">]</span> <span class="o">=</span> <span class="n">quant4d</span><span class="o">.</span><span class="n">centerOfMass</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">FlipY</span><span class="o">=</span><span class="n">true</span><span class="p">,</span> <span class="n">ScanRotation</span><span class="o">=</span><span class="n">deg</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array</span></code>) – prod(nPixels) x prod(nFrames), as app.data (CPU or gpuArray)</p></li>
+<li><p><strong>mask</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">logical</span> <span class="pre">|</span> <span class="pre">double</span></code>) – detector weights [kx ky], normally the annular mask</p></li>
+<li><p><strong>center</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[double</span> <span class="pre">double]</span></code>) – beam centre [x y] in detector pixels</p></li>
+<li><p><strong>nFrames</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – scan size [rx ry]</p></li>
+<li><p><strong>FlipY</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – mirror detector y before rotating</p></li>
+<li><p><strong>ScanRotation</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – rotate the vectors by this angle in degrees, using the
+app’s rotation_matrix convention</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>comx</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span> <span class="pre">|</span> <span class="pre">single</span></code>) – [rx ry] x component, in detector pixels from the centre</p></li>
+<li><p><strong>comy</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span> <span class="pre">|</span> <span class="pre">single</span></code>) – [rx ry] y component; multiply by mrad/px for mrad</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="quant4d.readHDF5">
+<span class="sig-prename descclassname"><span class="pre">quant4d.</span></span><span class="sig-name descname"><span class="pre">readHDF5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">path</span></em>, <em class="sig-param"><span class="pre">dataset</span></em>, <em class="sig-param"><span class="pre">opts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quant4d.readHDF5" title="Link to this definition"></a></dt>
+<dd><p>READHDF5 Read a 4D-STEM HDF5 dataset into a (kx, ky, rx, ry) array.</p>
+<p>Supports 4-D datasets stored in C order as (ry, rx, ky, kx), as written by py4DSTEM
+and by <a class="reference internal" href="#Quant4D" title="Quant4D"><code class="xref mat mat-class docutils literal notranslate"><span class="pre">Quant4D</span></code></a>’s own export (“/STEM4D”), and 3-D datasets stored as (N, ky, kx).
+Replaces the HDF5 branch of the app’s read_file, which built the file dataspace by
+hand and so failed on non-square detectors and 3-D datasets.</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">quant4d</span><span class="o">.</span><span class="n">readHDF5</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;/data&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">quant4d</span><span class="o">.</span><span class="n">readHDF5</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;/data&quot;</span><span class="p">,</span> <span class="n">ScanSize</span><span class="o">=</span><span class="p">[</span><span class="n">rx</span> <span class="n">ry</span><span class="p">],</span> <span class="n">Binning</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – HDF5 file</p></li>
+<li><p><strong>dataset</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – dataset path inside the file</p></li>
+<li><p><strong>ScanSize</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – scan size [rx ry] for 3-D datasets; guessed with
+<a class="reference internal" href="#quant4d.guessScanShape" title="quant4d.guessScanShape"><code class="xref mat mat-func docutils literal notranslate"><span class="pre">quant4d.guessScanShape()</span></code></a> if not given</p></li>
+<li><p><strong>PixelStart</strong> – as in <a class="reference internal" href="#quant4d.readRaw" title="quant4d.readRaw"><code class="xref mat mat-func docutils literal notranslate"><span class="pre">quant4d.readRaw()</span></code></a></p></li>
+<li><p><strong>NumPixels</strong> – as in <a class="reference internal" href="#quant4d.readRaw" title="quant4d.readRaw"><code class="xref mat mat-func docutils literal notranslate"><span class="pre">quant4d.readRaw()</span></code></a></p></li>
+<li><p><strong>Binning</strong> – as in <a class="reference internal" href="#quant4d.readRaw" title="quant4d.readRaw"><code class="xref mat mat-func docutils literal notranslate"><span class="pre">quant4d.readRaw()</span></code></a></p></li>
+<li><p><strong>FrameStart</strong> – as in <a class="reference internal" href="#quant4d.readRaw" title="quant4d.readRaw"><code class="xref mat mat-func docutils literal notranslate"><span class="pre">quant4d.readRaw()</span></code></a></p></li>
+<li><p><strong>NumFrames</strong> – as in <a class="reference internal" href="#quant4d.readRaw" title="quant4d.readRaw"><code class="xref mat mat-func docutils literal notranslate"><span class="pre">quant4d.readRaw()</span></code></a></p></li>
+<li><p><strong>Sampling</strong> – as in <a class="reference internal" href="#quant4d.readRaw" title="quant4d.readRaw"><code class="xref mat mat-func docutils literal notranslate"><span class="pre">quant4d.readRaw()</span></code></a></p></li>
+<li><p><strong>Progress</strong> – as in <a class="reference internal" href="#quant4d.readRaw" title="quant4d.readRaw"><code class="xref mat mat-func docutils literal notranslate"><span class="pre">quant4d.readRaw()</span></code></a></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">single</span> <span class="pre">|</span> <span class="pre">double</span></code>) – (kx, ky, rx, ry) array, or [] if cancelled</p></li>
+<li><p><strong>cancelled</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – true if Progress returned false</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="quant4d.guessScanShape">
+<span class="sig-prename descclassname"><span class="pre">quant4d.</span></span><span class="sig-name descname"><span class="pre">guessScanShape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">n</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quant4d.guessScanShape" title="Link to this definition"></a></dt>
+<dd><p>GUESSSCANSHAPE Scan size [rx ry] with rx*ry == n, as close to square as possible.</p>
+<p>Replaces the app’s guess_frames_from_dim3, whose round(sqrt(n)) guess need not
+multiply back to n (24 gave 5 x 5).</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quant4d</span><span class="o">.</span><span class="n">guessScanShape</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>      <span class="o">%</span> <span class="p">[</span><span class="mi">6</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">quant4d</span><span class="o">.</span><span class="n">guessScanShape</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span>    <span class="o">%</span> <span class="p">[</span><span class="mi">64</span> <span class="mi">64</span><span class="p">]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of probe positions</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>scan</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – [rx ry] with rx &gt;= ry</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="quant4d.freeSpace">
+<span class="sig-prename descclassname"><span class="pre">quant4d.</span></span><span class="sig-name descname"><span class="pre">freeSpace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">folder</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quant4d.freeSpace" title="Link to this definition"></a></dt>
+<dd><p>FREESPACE Free space available to the user on the drive holding a folder, in bytes.</p>
+<p>Replaces java.io.File(folder).getUsableSpace in the app’s export notes, which
+fails in MATLAB releases without a Java runtime. Uses Java when available, .NET
+on Windows, and df on macOS/Linux. Returns NaN if the space cannot be found.</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gib</span> <span class="o">=</span> <span class="n">quant4d</span><span class="o">.</span><span class="n">freeSpace</span><span class="p">(</span><span class="n">pwd</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1024</span><span class="o">^</span><span class="mi">3</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>folder</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – any folder on the drive; need not exist yet if its parent does</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>bytes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – usable free space, or NaN</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="quant4d.segmentCentroids">
+<span class="sig-prename descclassname"><span class="pre">quant4d.</span></span><span class="sig-name descname"><span class="pre">segmentCentroids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">nseg</span></em>, <em class="sig-param"><span class="pre">nrung</span></em>, <em class="sig-param"><span class="pre">r_in</span></em>, <em class="sig-param"><span class="pre">r_out</span></em>, <em class="sig-param"><span class="pre">rotation_deg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quant4d.segmentCentroids" title="Link to this definition"></a></dt>
+<dd><p>SEGMENTCENTROIDS Nominal centre of mass of every DPC segment, in detector pixels.</p>
+<p>Rows are ordered like <a class="reference internal" href="#quant4d.segmentMasks" title="quant4d.segmentMasks"><code class="xref mat mat-func docutils literal notranslate"><span class="pre">quant4d.segmentMasks()</span></code></a>. The centroid of an annular sector of
+half-angle a (radians) between radii r1 and r2 is
+2 sin(a) / (3 a) * (r2^3 - r1^3) / (r2^2 - r1^2).
+Replaces the app’s inline calculation, which divided by the half-angle in degrees
+(DPC magnitudes about 57 times too small) and applied the detector rotation twice.</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">quant4d</span><span class="o">.</span><span class="n">segmentCentroids</span><span class="p">(</span><span class="n">nseg</span><span class="p">,</span> <span class="n">nrung</span><span class="p">,</span> <span class="n">rIn</span><span class="p">,</span> <span class="n">rOut</span><span class="p">,</span> <span class="n">rotationDeg</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nseg</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – segments per ring</p></li>
+<li><p><strong>nrung</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of rings</p></li>
+<li><p><strong>rIn</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – inner radius in pixels</p></li>
+<li><p><strong>rOut</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – outer radius in pixels</p></li>
+<li><p><strong>rotationDeg</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – detector rotation in degrees</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>v</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – nseg*nrung x 2 centroid vectors [x y]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="quant4d.radialBins">
+<span class="sig-prename descclassname"><span class="pre">quant4d.</span></span><span class="sig-name descname"><span class="pre">radialBins</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">nPixels</span></em>, <em class="sig-param"><span class="pre">center</span></em>, <em class="sig-param"><span class="pre">stepPx</span></em>, <em class="sig-param"><span class="pre">maxRadius</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quant4d.radialBins" title="Link to this definition"></a></dt>
+<dd><p>RADIALBINS Ring masks of equal width around the beam centre, for fast BF/ADF imaging.</p>
+<p>Pixel p is in ring k when edges(k) &lt;= r(p) &lt; edges(k+1), with r measured from the
+centre. Multiplying the rings by the data once gives a stack of ring images; any
+annular image is then a sum of rings, chosen with <a class="reference internal" href="#quant4d.binRange" title="quant4d.binRange"><code class="xref mat mat-func docutils literal notranslate"><span class="pre">quant4d.binRange()</span></code></a> so it equals
+the drawn mask exactly.</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">bins</span><span class="p">,</span> <span class="n">edges</span><span class="p">]</span> <span class="o">=</span> <span class="n">quant4d</span><span class="o">.</span><span class="n">radialBins</span><span class="p">([</span><span class="n">kx</span> <span class="n">ky</span><span class="p">],</span> <span class="p">[</span><span class="n">x</span> <span class="n">y</span><span class="p">],</span> <span class="n">stepPx</span><span class="p">,</span> <span class="n">maxRadius</span><span class="p">)</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">quant4d</span><span class="o">.</span><span class="n">binRange</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">r_in</span><span class="p">,</span> <span class="n">r_out</span><span class="p">);</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">bins</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="p">:),</span> <span class="mi">1</span><span class="p">),</span> <span class="p">[</span><span class="n">kx</span> <span class="n">ky</span><span class="p">]);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nPixels</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – detector size [kx ky]</p></li>
+<li><p><strong>center</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[double</span> <span class="pre">double]</span></code>) – beam centre [x y] in pixels, 1-based</p></li>
+<li><p><strong>stepPx</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – ring width in pixels</p></li>
+<li><p><strong>maxRadius</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – largest radius to cover</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>bins</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">logical</span></code>) – one row per ring, one column per detector pixel</p></li>
+<li><p><strong>edges</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – ring edges 0, stepPx, 2*stepPx, … past maxRadius</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="quant4d.parseDimsFromName">
+<span class="sig-prename descclassname"><span class="pre">quant4d.</span></span><span class="sig-name descname"><span class="pre">parseDimsFromName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quant4d.parseDimsFromName" title="Link to this definition"></a></dt>
+<dd><p>PARSEDIMSFROMNAME Dataset size [kx ky rx ry] encoded in a file name.</p>
+<p>Recognises EMPAD names (scan_x256_y128.raw gives [128 128 256 128]) and names
+containing AxBxCxD. Replaces the app’s get_dims_from_name, whose patterns also
+matched empty numbers.</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">dims</span><span class="p">,</span> <span class="n">isEMPAD</span><span class="p">]</span> <span class="o">=</span> <span class="n">quant4d</span><span class="o">.</span><span class="n">parseDimsFromName</span><span class="p">(</span><span class="s2">&quot;sample_64x64x256x128.bin&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – file name or full path</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>dims</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int</span> <span class="pre">int</span> <span class="pre">int]</span></code>) – [kx ky rx ry], or [] if the name holds no size</p></li>
+<li><p><strong>isEMPAD</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – true for the EMPAD scan_xC_yD.raw pattern</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="quant4d.segmentMasks">
+<span class="sig-prename descclassname"><span class="pre">quant4d.</span></span><span class="sig-name descname"><span class="pre">segmentMasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">nPixels</span></em>, <em class="sig-param"><span class="pre">center</span></em>, <em class="sig-param"><span class="pre">nseg</span></em>, <em class="sig-param"><span class="pre">nrung</span></em>, <em class="sig-param"><span class="pre">rIn</span></em>, <em class="sig-param"><span class="pre">rOut</span></em>, <em class="sig-param"><span class="pre">rotationDeg</span></em>, <em class="sig-param"><span class="pre">flipY</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quant4d.segmentMasks" title="Link to this definition"></a></dt>
+<dd><p>SEGMENTMASKS Masks of a segmented (DPC) detector: nseg segments times nrung rings.</p>
+<p>Same masks as the “DPC” branch of the app’s integrate_CoM (app.masks.Seg). Use with
+<a class="reference internal" href="#quant4d.segmentCentroids" title="quant4d.segmentCentroids"><code class="xref mat mat-func docutils literal notranslate"><span class="pre">quant4d.segmentCentroids()</span></code></a> and <a class="reference internal" href="#quant4d.dpcCoM" title="quant4d.dpcCoM"><code class="xref mat mat-func docutils literal notranslate"><span class="pre">quant4d.dpcCoM()</span></code></a>.</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">masks</span> <span class="o">=</span> <span class="n">quant4d</span><span class="o">.</span><span class="n">segmentMasks</span><span class="p">([</span><span class="n">kx</span> <span class="n">ky</span><span class="p">],</span> <span class="p">[</span><span class="n">x</span> <span class="n">y</span><span class="p">],</span> <span class="n">nseg</span><span class="p">,</span> <span class="n">nrung</span><span class="p">,</span> <span class="n">rIn</span><span class="p">,</span> <span class="n">rOut</span><span class="p">,</span> <span class="n">rotationDeg</span><span class="p">,</span> <span class="n">flipY</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nPixels</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – detector size [kx ky]</p></li>
+<li><p><strong>center</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[double</span> <span class="pre">double]</span></code>) – beam centre [x y] in pixels</p></li>
+<li><p><strong>nseg</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – segments per ring</p></li>
+<li><p><strong>nrung</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of rings (“rungs”)</p></li>
+<li><p><strong>rIn</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – inner radius in pixels</p></li>
+<li><p><strong>rOut</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – outer radius in pixels</p></li>
+<li><p><strong>rotationDeg</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – detector rotation; segment i is centred on
+rotationDeg + (i-1)*360/nseg</p></li>
+<li><p><strong>flipY</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – mirror detector y first</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>masks</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">logical</span></code>) – one row per segment, row nseg*(j-1)+i is segment i of rung j</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="quant4d.binRange">
+<span class="sig-prename descclassname"><span class="pre">quant4d.</span></span><span class="sig-name descname"><span class="pre">binRange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">edges</span></em>, <em class="sig-param"><span class="pre">rIn</span></em>, <em class="sig-param"><span class="pre">rOut</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quant4d.binRange" title="Link to this definition"></a></dt>
+<dd><p>BINRANGE Rings from <a class="reference internal" href="#quant4d.radialBins" title="quant4d.radialBins"><code class="xref mat mat-func docutils literal notranslate"><span class="pre">quant4d.radialBins()</span></code></a> that lie wholly inside [rIn, rOut].</p>
+<p>With radii on multiples of the ring width (the app rounds them to AnnularStep)
+this selects exactly rIn &lt;= r &lt; rOut. Replaces the round(…)+1 indexing in the
+app’s move_annular_detector, which also summed the ring starting at the outer
+radius.</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">quant4d</span><span class="o">.</span><span class="n">binRange</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">rIn</span><span class="p">,</span> <span class="n">rOut</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>edges</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – ring edges from <a class="reference internal" href="#quant4d.radialBins" title="quant4d.radialBins"><code class="xref mat mat-func docutils literal notranslate"><span class="pre">quant4d.radialBins()</span></code></a></p></li>
+<li><p><strong>rIn</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – inner radius in pixels</p></li>
+<li><p><strong>rOut</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – outer radius in pixels</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>k</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – indices of the selected rings</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="quant4d.readRaw">
+<span class="sig-prename descclassname"><span class="pre">quant4d.</span></span><span class="sig-name descname"><span class="pre">readRaw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">path</span></em>, <em class="sig-param"><span class="pre">dims</span></em>, <em class="sig-param"><span class="pre">opts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quant4d.readRaw" title="Link to this definition"></a></dt>
+<dd><p>READRAW Read a raw binary 4D-STEM file into a (kx, ky, rx, ry) array.</p>
+<p>Detector crop, binning and scan sampling are applied while reading. Integer data
+is returned as single (double for 64-bit types), so it can be used with mtimes.
+Replaces the “Physical Memory” branch of the app’s read_file, which used a
+hard-coded 4-byte stride, ignored the byte order, kept integer classes and summed
+(rather than sampled) probe positions.</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">quant4d</span><span class="o">.</span><span class="n">readRaw</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="p">[</span><span class="n">kx</span> <span class="n">ky</span> <span class="n">rx</span> <span class="n">ry</span><span class="p">])</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">quant4d</span><span class="o">.</span><span class="n">readRaw</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="p">[</span><span class="n">kx</span> <span class="n">ky</span> <span class="n">rx</span> <span class="n">ry</span><span class="p">],</span> <span class="n">Order</span><span class="o">=</span><span class="s2">&quot;rk&quot;</span><span class="p">,</span> <span class="n">DataType</span><span class="o">=</span><span class="s2">&quot;uint16&quot;</span><span class="p">,</span> <span class="n">ByteOrder</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
+<span class="p">[</span><span class="n">data</span><span class="p">,</span> <span class="n">cancelled</span><span class="p">]</span> <span class="o">=</span> <span class="n">quant4d</span><span class="o">.</span><span class="n">readRaw</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">Progress</span><span class="o">=@</span><span class="p">(</span><span class="n">done</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span> <span class="n">keepGoing</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – file to read</p></li>
+<li><p><strong>dims</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int</span> <span class="pre">int</span> <span class="pre">int]</span></code>) – detector and scan size [kx ky rx ry] of the whole file,
+whatever its layout</p></li>
+<li><p><strong>Order</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – file axes, fastest first: “kr” (kx ky rx ry, frames contiguous,
+default), “kr_inv” (ky kx ry rx), “rk” (rx ry kx ky, probe positions
+contiguous) or “rk_inv” (ry rx ky kx)</p></li>
+<li><p><strong>DataType</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – MATLAB class of the stored values, e.g. “single”, “uint16”</p></li>
+<li><p><strong>ByteOrder</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – “l” (little-endian, default) or “b” (big-endian)</p></li>
+<li><p><strong>Offset</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – bytes before the first block</p></li>
+<li><p><strong>Header</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – bytes before each block of the two fastest file axes</p></li>
+<li><p><strong>Footer</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – bytes after each such block (EMPAD: 1024)</p></li>
+<li><p><strong>PixelStart</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – first detector pixel [kx ky] to read, 1-based</p></li>
+<li><p><strong>NumPixels</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – output pixels after binning; NaN = as many as fit</p></li>
+<li><p><strong>Binning</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – detector binning factor; sums Binning x Binning pixels</p></li>
+<li><p><strong>FrameStart</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – first probe position [rx ry], 1-based</p></li>
+<li><p><strong>NumFrames</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[int</span> <span class="pre">int]</span></code>) – output probe positions; NaN = as many as fit</p></li>
+<li><p><strong>Sampling</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – keep every Sampling-th probe position along rx and ry</p></li>
+<li><p><strong>Progress</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">function_handle</span></code>) – called as Progress(done, total); return false to
+cancel</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">single</span> <span class="pre">|</span> <span class="pre">double</span></code>) – (kx, ky, rx, ry) array, or [] if cancelled</p></li>
+<li><p><strong>cancelled</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – true if Progress returned false</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="quant4d.integrateCoM">
+<span class="sig-prename descclassname"><span class="pre">quant4d.</span></span><span class="sig-name descname"><span class="pre">integrateCoM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">comx</span></em>, <em class="sig-param"><span class="pre">comy</span></em>, <em class="sig-param"><span class="pre">band</span></em><span class="sig-paren">)</span><a class="headerlink" href="#quant4d.integrateCoM" title="Link to this definition"></a></dt>
+<dd><p>INTEGRATECOM Integrated (iCoM/iDPC) and differentiated (dCoM/dDPC) images of a CoM field.</p>
+<p>Lazic et al., Ultramicroscopy 160 (2016) 265, doi:10.1016/j.ultramic.2015.10.011.
+Replaces the app’s inline calculation, which put the zero frequency at n/2+0.5,
+used un-normalised frequencies (so non-square scans were integrated
+anisotropically) and took its band-pass limits from the diffraction pattern.</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">icom</span><span class="p">,</span> <span class="n">dcom</span><span class="p">]</span> <span class="o">=</span> <span class="n">quant4d</span><span class="o">.</span><span class="n">integrateCoM</span><span class="p">(</span><span class="n">comx</span><span class="p">,</span> <span class="n">comy</span><span class="p">)</span>
+<span class="p">[</span><span class="n">icom</span><span class="p">,</span> <span class="n">dcom</span><span class="p">]</span> <span class="o">=</span> <span class="n">quant4d</span><span class="o">.</span><span class="n">integrateCoM</span><span class="p">(</span><span class="n">comx</span><span class="p">,</span> <span class="n">comy</span><span class="p">,</span> <span class="n">quant4d</span><span class="o">.</span><span class="n">periodsToBand</span><span class="p">([</span><span class="mi">2</span> <span class="mi">200</span><span class="p">]))</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>comx</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – CoM x component [rx ry]</p></li>
+<li><p><strong>comy</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – CoM y component [rx ry]</p></li>
+<li><p><strong>band</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">[double</span> <span class="pre">double]</span></code>) – band-pass on the spatial frequency in cycles per
+pixel, 0 to sqrt(2)/2; default [0 Inf], no filter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>icom</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – integrated CoM [rx ry], zero mean</p></li>
+<li><p><strong>dcom</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">double</span></code>) – divergence of the CoM field [rx ry]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="dm3-dm4-reader">
+<h2>DM3/DM4 reader<a class="headerlink" href="#dm3-dm4-reader" title="Link to this heading"></a></h2>
+<dl class="mat function">
+<dt class="sig sig-object mat" id="dmInfo">
+<span class="sig-name descname"><span class="pre">dmInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">file</span></em>, <em class="sig-param"><span class="pre">msg_opt</span></em>, <em class="sig-param"><span class="pre">info_opt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#dmInfo" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="export.html" class="btn btn-neutral float-left" title="Save/Export" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="license.html" class="btn btn-neutral float-right" title="License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Bryan D Esser.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+    "acknowledgement": 0.013,
+    "alignment": 0.004,
+    "annular_round": 0.008,
+    "api": 0.618,
+    "custom_apertures": 0.029,
+    "dpc_com": 0.025,
+    "export": 0.007,
+    "functionality": 0.002,
+    "graphical_user_interface": 0.029,
+    "index": 0.003,
+    "installation": 0.007,
+    "license": 0.003,
+    "rois": 0.005,
+    "virtual_apertures": 0.002
+}
