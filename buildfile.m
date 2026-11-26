@@ -7,6 +7,9 @@ function plan = buildfile
 import matlab.buildtool.tasks.CodeIssuesTask
 import matlab.buildtool.tasks.TestTask
 
+root = fileparts(mfilename("fullpath"));
+addpath(fullfile(root, "tests"), fullfile(root, "src"));   % +q4dtest and +quant4d live here
+
 plan = buildplan(localfunctions);
 
 % Static analysis of the app, dmInfo and the extracted +quant4d functions
