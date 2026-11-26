@@ -10,7 +10,7 @@ sys.path.insert(0, "../src")
 project = 'Quant4D'
 copyright = f"{datetime.today().year}, Bryan D Esser"
 author = 'Bryan D Esser'
-release = '2025.03.17'
+release = '3.0'
 
 extensions = [
     "sphinx_rtd_theme",

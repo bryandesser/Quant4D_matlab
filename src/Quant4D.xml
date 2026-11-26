@@ -4310,7 +4310,7 @@
         <Description>Features include: round, annular, segmented, center-of-mass, and virtual aperture detectors. Images can be formed very rapidly for quickly analyzing 4DSTEM datasets. Data can be loaded into physical memory, or as a memory-mapped file for systems with limited memory, or especially large datasets.</Description>
         <Name>Quant4D</Name>
         <Summary>This app is designed to allow for rapid manipulation of large experimental or simulated 4DSTEM datasets.</Summary>
-        <Version>2.0</Version>
+        <Version>3.0</Version>
     </AppDetails>
     <InternalData>
         <AppId>d57b8273-b982-4380-9360-c98aec3aa166</AppId>
